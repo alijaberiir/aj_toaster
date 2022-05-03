@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../../static/toasts/bootstrap.min.css">
+<script src="../../static/toasts/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" href="../../static/toasts/toastr.min.css">
+<script src="../../static/toasts/toastr.min.js"></script>
+
+<script>
+	toastr.options = {
+		"closeButton": {{object_list.Close_Button|lower}},
+		"debug": false,
+		"newestOnTop": {{object_list.Newest_on_top|lower}},
+		"progressBar": {{object_list.Progress_Bar|lower}},
+		"positionClass": '{{object_list.Position}}',
+		"preventDuplicates": {{object_list.Prevent_Duplicates|lower}},
+		"showDuration": '{{object_list.showDuratio}}',
+		"hideDuration": '{{object_list.hideDuration}}',
+		"timeOut": '{{object_list.timeOut}}',
+		"extendedTimeOut": '{{object_list.extendedTimeOut}}',
+		"showEasing": '{{object_list.showEasing}}',
+		"hideEasing": '{{object_list.hideEasing}}',
+		"showMethod": '{{object_list.showMethod}}',
+		"hideMethod": '{{object_list.hideMethod}}',
+		{% if  object_list.Add_behavior_click == 'false' or object_list.Add_behavior_click == 'null' %}"onclick": null,{% endif %}
+	  }
+</script> 
+
+
+    <title>Toaster Aj Config</title>
+</head>
+<body>
+    
+   
+    
+<div class="container">
+  <main>
+    <div class="text-center">
+      <img class="d-block mx-auto mb-4" src="../../static/toasts/pywebs.png" alt="" width="400" height="400">
+      <h2>Aj Toaster Config</h2>
+      <p class="lead">Config Toaster messages</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-12 col-lg-12">
+        <h4 class="mb-3">Settings on Database</h4>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-4 row ">
+                    <div class="col-sm-12 form-check mt-3">
+                        <label class="form-check-label mr-3">{{ form.Close_Button.label}}:</label>
+                         {{ form.Close_Button}}</div>
+                    <div class="col-sm-12 form-check mt-3">
+                        <label class="form-check-label mr-3">{{ form.Newest_on_top.label}}:</label>
+                          {{ form.Newest_on_top}}</div>
+                    <div class="col-sm-12 form-check mt-3">
+                        <label class="form-check-label mr-3">{{ form.Add_behavior_click.label}}:</label>
+                          {{ form.Add_behavior_click}}</div>
+                    <div class="col-sm-12 form-check mt-3">
+                        <label class="form-check-label mr-3">{{ form.Progress_Bar.label}}:</label>
+                          {{ form.Progress_Bar}}</div>
+                    <div class="col-sm-12 form-check mt-3">
+                        <label class="form-check-label mr-3">{{ form.Prevent_Duplicates.label}}:</label>
+                          {{ form.Prevent_Duplicates}}</div>
+                </div>
+                <div class="col-4 row ">
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.Position.label}}:</label>
+                          {{ form.Position}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.showEasing.label}}:</label>
+                          {{ form.showEasing}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.hideEasing.label}}:</label>
+                          {{ form.hideEasing}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.showMethod.label}}:</label>
+                          {{ form.showMethod}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.hideMethod.label}}:</label>
+                          {{ form.hideMethod}}</div>
+                </div>
+                <div class="col-4 row ">
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.showDuratio.label}}:</label>
+                          {{ form.showDuratio}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.hideDuration.label}}:</label>
+                          {{ form.hideDuration}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.timeOut.label}}:</label>
+                          {{ form.timeOut}}</div>
+                    <div class="col-sm-12 input-group mt-3">
+                        <label class="form-lable mr-3">{{ form.extendedTimeOut.label}}:</label>
+                          {{ form.extendedTimeOut}}</div>
+                </div>
+            
+               <div class="col-12 mt-5 d-flex justify-content-end">
+                    <a href="/" class="btn btn-success mr-2" >Home Page</a>
+                   <button class="btn btn-info mr-2 " type="reset">Rest</button>
+                   <button class="btn btn-danger mr-2 " type="submit">Save Config</button>
+
+               </div>
+             
+
+                
+            </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2022–2023 Pywebs.<a target="__blank" href="https://Alijaberi.ir">Alijaberi.ir</a></p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a target="__blank" href="https://github.com/alijaberiir">
+        <img  src="../../static/toasts/github.svg   " alt="" width="20" height="20"> 
+        Github</a></li>
+    
+    </ul>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% if messages %}
+    {% for message in messages %}
+
+        {% if message.tags == 'info' %}
+            <script type=text/javascript>toastr.info('{{ message }}')</script>
+        {% elif message.tags == 'success' %}
+            <script type=text/javascript>toastr.success('{{ message }}')</script>
+        {% elif message.tags == 'warning' %}
+            <script type=text/javascript>toastr.warning('{{ message }}')</script>
+        {% elif message.tags == 'error' %}
+            <script type=text/javascript>toastr.error('{{ message }}')</script>
+        {% endif %}>
+
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
+
+

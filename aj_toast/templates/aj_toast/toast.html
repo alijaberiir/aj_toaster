@@ -1,0 +1,42 @@
+
+<link rel="stylesheet" href="../../static/toasts/bootstrap.min.css">
+<script src="../../static/toasts/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" href="../../static/toasts/toastr.min.css">
+<script src="../../static/toasts/toastr.min.js"></script>
+
+<script>
+	toastr.options = {
+		"closeButton": {{obj.Close_Button|lower}},
+		"debug": false,
+		"newestOnTop": {{obj.Newest_on_top|lower}},
+		"progressBar": {{obj.Progress_Bar|lower}},
+		"positionClass": '{{obj.Position}}',
+		"preventDuplicates": {{obj.Prevent_Duplicates|lower}},
+		"showDuration": '{{obj.showDuratio}}',
+		"hideDuration": '{{obj.hideDuration}}',
+		"timeOut": '{{obj.timeOut}}',
+		"extendedTimeOut": '{{obj.extendedTimeOut}}',
+		"showEasing": '{{obj.showEasing}}',
+		"hideEasing": '{{obj.hideEasing}}',
+		"showMethod": '{{obj.showMethod}}',
+		"hideMethod": '{{obj.hideMethod}}',
+		{% if  obj.Add_behavior_click == 'false' or obj.Add_behavior_click == 'null' %}"onclick": null,{% endif %}
+	  }
+</script> 
+
+
+       {% if messages %}
+       {% for message in messages %}
+
+           {% if message.tags == 'info' %}
+               <script type=text/javascript>toastr.info('{{ message }}')</script>
+           {% elif message.tags == 'success' %}
+               <script type=text/javascript>toastr.success('{{ message }}')</script>
+           {% elif message.tags == 'warning' %}
+               <script type=text/javascript>toastr.warning('{{ message }}')</script>
+           {% elif message.tags == 'error' %}
+               <script type=text/javascript>toastr.error('{{ message }}')</script>
+           {% endif %}>
+
+       {% endfor %}
+       {% endif %}
