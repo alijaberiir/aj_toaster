@@ -38,5 +38,5 @@
 
 ###  Options
 
-https://127.0.0.1:8000/aj_toast
+http://127.0.0.1:8000/aj_toast
 
